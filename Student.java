@@ -11,7 +11,6 @@ public class Student {
         this.age = age;
         this.course = course;
     }
-
     void display() {
         System.out.println("ID: " + id);
         System.out.println("Name: " + name);
@@ -20,4 +19,3 @@ public class Student {
         System.out.println("----------------------");
     }
 }
-    
