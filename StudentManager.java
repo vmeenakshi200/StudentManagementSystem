@@ -1,7 +1,5 @@
-import java.io.File;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class StudentManager {
 
@@ -9,8 +7,14 @@ public class StudentManager {
 
     // Add Student
     void addStudent(Student student) {
+        if (studentExists(student.id)) {
+            System.out.println("Student ID already exists!");
+            return;
+        }
+
         students.add(student);
         System.out.println("Student Added Successfully!");
+        saveStudents();
     }
 
     // Display Students
@@ -21,8 +25,15 @@ public class StudentManager {
             return;
         }
 
+        System.out.println("\n===== STUDENT LIST =====");
+
         for (Student s : students) {
-            s.display();
+            System.out.println(
+                "ID: " + s.id +
+                ", Name: " + s.name +
+                ", Age: " + s.age +
+                ", Course: " + s.course
+            );
         }
     }
 
@@ -30,9 +41,13 @@ public class StudentManager {
     void searchStudent(int id) {
 
         for (Student s : students) {
+
             if (s.id == id) {
-                System.out.println("Student Found!");
-                s.display();
+                System.out.println("\nStudent Found!");
+                System.out.println("ID: " + s.id);
+                System.out.println("Name: " + s.name);
+                System.out.println("Age: " + s.age);
+                System.out.println("Course: " + s.course);
                 return;
             }
         }
@@ -43,10 +58,12 @@ public class StudentManager {
     // Delete Student
     void deleteStudent(int id) {
 
-        for (int i = 0; i < students.size(); i++) {
-            if (students.get(i).id == id) {
-                students.remove(i);
+        for (Student s : students) {
+
+            if (s.id == id) {
+                students.remove(s);
                 System.out.println("Student Deleted Successfully!");
+                saveStudents();
                 return;
             }
         }
@@ -54,14 +71,31 @@ public class StudentManager {
         System.out.println("Student Not Found!");
     }
 
+    // Check Student ID
+    boolean studentExists(int id) {
+
+        for (Student s : students) {
+
+            if (s.id == id) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     // Update Student
     void updateStudent(int id, int newAge, String newCourse) {
 
         for (Student s : students) {
+
             if (s.id == id) {
+
                 s.age = newAge;
                 s.course = newCourse;
+
                 System.out.println("Student Updated Successfully!");
+                saveStudents();
                 return;
             }
         }
@@ -77,13 +111,21 @@ public class StudentManager {
             PrintWriter writer = new PrintWriter("students.txt");
 
             for (Student s : students) {
-                writer.println(s.id + "," + s.name + "," + s.age + "," + s.course);
+
+                writer.println(
+                    s.id + "," +
+                    s.name + "," +
+                    s.age + "," +
+                    s.course
+                );
             }
 
             writer.close();
+
             System.out.println("Students Saved Successfully!");
 
         } catch (Exception e) {
+
             System.out.println("Error Saving File!");
         }
     }
@@ -99,35 +141,36 @@ public class StudentManager {
                 return;
             }
 
-            Scanner sc = new Scanner(file);
+            Scanner scanner = new Scanner(file);
 
-            while (sc.hasNextLine()) {
+            while (scanner.hasNextLine()) {
 
-                String line = sc.nextLine();
+                String line = scanner.nextLine();
+
                 String[] data = line.split(",");
 
-                int id = Integer.parseInt(data[0]);
-                String name = data[1];
-                int age = Integer.parseInt(data[2]);
-                String course = data[3];
+                if (data.length == 4) {
 
-                students.add(new Student(id, name, age, course));
+                    int id = Integer.parseInt(data[0]);
+                    String name = data[1];
+                    int age = Integer.parseInt(data[2]);
+                    String course = data[3];
+
+                    students.add(
+                        new Student(id, name, age, course)
+                    );
+                }
             }
 
-            sc.close();
+            scanner.close();
 
         } catch (Exception e) {
+
             System.out.println("Error Loading File!");
         }
-    }
-    boolean studentExists(int id) {
-
-    for (Student s : students) {
-        if (s.id == id) {
-            return true;
+        if (studentExists(student.id)) {
+            System.out.println("Student ID already exists!");
+            return;
         }
     }
-
-    return false;
-}
 }
