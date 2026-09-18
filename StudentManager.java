@@ -7,6 +7,7 @@ public class StudentManager {
 
     // Add Student
     void addStudent(Student student) {
+
         if (studentExists(student.id)) {
             System.out.println("Student ID already exists!");
             return;
@@ -167,10 +168,6 @@ public class StudentManager {
         } catch (Exception e) {
 
             System.out.println("Error Loading File!");
-        }
-        if (studentExists(student.id)) {
-            System.out.println("Student ID already exists!");
-            return;
         }
     }
 }

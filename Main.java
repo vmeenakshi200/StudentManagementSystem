@@ -56,7 +56,6 @@ public class Main {
                     Student student = new Student(id, name, age, course);
 
                     manager.addStudent(student);
-                    manager.saveStudents();
                     break;
 
                 case 2:
@@ -78,7 +77,6 @@ public class Main {
                     int deleteId = sc.nextInt();
 
                     manager.deleteStudent(deleteId);
-                    manager.saveStudents();
                     break;
 
                 case 5:
@@ -94,9 +92,8 @@ public class Main {
                     String newCourse = sc.nextLine();
 
                     manager.updateStudent(updateId, newAge, newCourse);
-                    manager.saveStudents();
-
-                     break;
+                   
+                    break;
 
                 case 6:
                     manager.saveStudents();
