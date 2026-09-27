@@ -3,22 +3,32 @@
 A console-based Student Management System developed using Java.
 
 ## Features
+
 - Add Student
 - Display Students
 - Search Student
 - Update Student
 - Delete Student
-- Save and Load Student Records
+- Duplicate Student ID Validation
+- Age Validation
+- Save and Load Student Records using File Handling
 
 ## Technologies Used
+
 - Java
-- OOP
+- Object-Oriented Programming (OOP)
 - ArrayList
 - File Handling
+- Git & GitHub
 
-## How to Run
+## Project Structure
 
-Compile the project:
-
-```bash
-javac *.java
+```text
+StudentManagementSystem/
+│
+├── Main.java
+├── Student.java
+├── StudentManager.java
+├── students.txt
+├── README.md
+└── .gitignore
