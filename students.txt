@@ -1,3 +1,3 @@
-2,Meenakshi Devi,20,BE
-102,Reena,21,Bed
-101,Meenakshi Devi,20,BE
+101,Meenakshi Devi,21,BE CSE
+102,Reena,21,B.Ed
+103,Archana,22,B.Ed
