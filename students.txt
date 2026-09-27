@@ -1,3 +1,5 @@
 101,Meenakshi Devi,21,BE CSE
 102,Reena,21,B.Ed
 103,Archana,22,B.Ed
+104,Priyanshi,20,IT
+105,Maya,21,CSE

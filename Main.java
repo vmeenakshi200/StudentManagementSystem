@@ -82,19 +82,23 @@ public class Main {
                 case 5:
 
                     System.out.print("Enter Student ID to Update: ");
-                     int updateId = sc.nextInt();
+                    int updateId = sc.nextInt();
+                    sc.nextLine();
 
-                    System.out.print("Enter New Age: ");
+                    System.out.println("Enter New Name: ");
+                    String newName = sc.nextLine();
+
+                    System.out.println("Enter New Age: ");
                     int newAge = sc.nextInt();
                     sc.nextLine();
 
-                    System.out.print("Enter New Course: ");
+                    System.out.println("Enter New Course: ");
                     String newCourse = sc.nextLine();
 
-                    manager.updateStudent(updateId, newAge, newCourse);
-                   
+                    manager.updateStudent(updateId, newName, newAge, newCourse);
                     break;
 
+                   
                 case 6:
                     manager.saveStudents();
                     System.out.println("Thank You!");

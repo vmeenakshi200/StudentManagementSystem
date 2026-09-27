@@ -85,24 +85,26 @@ public class StudentManager {
         return false;
     }
 
-    // Update Student
-    void updateStudent(int id, int newAge, String newCourse) {
+    // Update Students
+    void updateStudent(int id, String newName, int newAge, String newCourse) {
 
-        for (Student s : students) {
+    for (Student s : students) {
 
-            if (s.id == id) {
+        if (s.id == id) {
 
-                s.age = newAge;
-                s.course = newCourse;
+            s.name = newName;
+            s.age = newAge;
+            s.course = newCourse;
 
-                System.out.println("Student Updated Successfully!");
-                saveStudents();
-                return;
-            }
+            System.out.println("Student Updated Successfully!");
+            saveStudents();
+            return;
         }
-
-        System.out.println("Student Not Found!");
     }
+
+    System.out.println("Student Not Found!");
+}
+
 
     // Save Students
     void saveStudents() {
@@ -127,7 +129,6 @@ public class StudentManager {
 
         } catch (Exception e) {
 
-            System.out.println("Error Saving File!");
         }
     }
 
